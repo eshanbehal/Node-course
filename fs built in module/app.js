@@ -17,3 +17,16 @@ fs.writeFileSync(jupiter, 'jupiter has the shortest day of all the planets.');
 //read jupiter
 data = fs.readFileSync(jupiter, 'utf-8');
 console.log(`${jupiter} content: ${data}`);
+
+//override content of venus
+fs.writeFileSync(venus, ' all the planets.');
+//read venus
+data = fs.readFileSync(venus, 'utf-8');
+console.log(`${venus} content: ${data}`);
+
+//append content to jupiter
+fs.appendFileSync(jupiter, '\neshan behal on planet');
+
+//read jupiter
+data = fs.readFileSync(jupiter, 'utf-8');
+console.log(`${jupiter} content: ${data}`);
