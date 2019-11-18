@@ -1,15 +1,46 @@
 const http = require('http');
-
+const url = require('url');
 //connection sewttings
 //port- a port is an end point of communication
 const port = 3000;
 //hostname - IP which is associated with any device which is connected to computer network.
 const hostname = '127.0.0.1';
 
+const cars = [
+  {
+      make: 'Audi',
+      model: 'A3',
+      year: '2015',
+      price: 10000,
+      transmission: 'Automatic',
+      url: `https://images.pexels.com/photos/2394/lights-clouds-dark-car.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940`
+  },
+  {
+      make: 'Mercedes',
+      model: 'B Class',
+      year: '2018',
+      price: 20000,
+      transmission: 'Manual',
+      url: `https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940`
+  },
+  {
+      make: 'Ford',
+      model: 'Focus',
+      year: '2018',
+      price: 13000,
+      transmission: 'Manual',
+      url: `https://images.pexels.com/photos/1007410/pexels-photo-1007410.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940`
+  }
+];
 //callback function to be executed when a user makes a request to our server
 const respond = (request, response) => {
     if(request.url !== '/favicon.ico'){
-        console.log(request.url);}
+        console.log(request.url);
+        console.log(url.parse(request.url, true).query);
+        console.log(url.parse(request.url, true).path);
+        console.log(url.parse(request.url, true).pathname);
+      
+      }
     //response.setHeader(headername, value)
     response.setHeader('Content-Type', 'text/plain');
     //response.writeHead(status code, {headers})
