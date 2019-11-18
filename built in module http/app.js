@@ -8,7 +8,25 @@ const hostname = '127.0.0.1';
 
 //callback function to be executed when a user makes a request to our server
 const respond = (request, response) => {
-    console.log(request);  
+    if(request.url !== '/favicon.ico'){
+        console.log(request.url);}
+    //response.setHeader(headername, value)
+    response.setHeader('Content-Type', 'text/plain');
+    //response.writeHead(status code, {headers})
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    //response.write sends the body of the response.
+    response.write(`<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <title>JS Bin</title>
+    </head>
+    <body>`);
+    response.write('<p>Node is fun.</p>');
+    response.end(`</body>
+    </html>`);
+ 
 };
 
 
