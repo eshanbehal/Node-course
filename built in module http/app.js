@@ -56,6 +56,18 @@ const respond = (request, response) => {
     </head>
     <body>`);
     response.write('<p>Node is fun.</p>');
+const check = car => (query.make === undefined || query.make.toLowerCase() === car.make) &&
+(query.model === undefined || query.model.toLowerCase() === car.model) &&
+(query.transmission === undefined || query.transmission.toLowerCase() === car.transmission) &&
+(query.minprice === undefined || parseInt(query.minprice) < car.minprice) &&
+(query.maxprice === undefined || parseInt(query.maxprice) > car.maxprice);
+
+
+    if(pathname === '/cars'){
+      car.filter(check).forEach(car => {
+        
+      });
+    }
     response.end(`</body>
     </html>`);
  
