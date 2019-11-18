@@ -36,9 +36,10 @@ const cars = [
 const respond = (request, response) => {
     if(request.url !== '/favicon.ico'){
         console.log(request.url);
-        console.log(url.parse(request.url, true).query);
-        console.log(url.parse(request.url, true).path);
-        console.log(url.parse(request.url, true).pathname);
+        const query = url.parse(request.url, true).query;
+        console.log(query);
+        const pathname = url.parse(request.url, true).pathname;  
+        console.log(pathname);
       
       }
     //response.setHeader(headername, value)
