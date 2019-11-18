@@ -6,3 +6,7 @@ const venus = 'venus.txt';
 
 //check if mars exist:
 console.log(fs.existsSync(mars));
+
+//read mars
+const data = fs.readFileSync(mars, 'utf-8');
+console.log(`${mars} content: ${data}`);
