@@ -68,3 +68,4 @@ fs.writeFile(jupiter, 'i am learning node.', err => {
         });
     }
 });
+console.log('hello');
