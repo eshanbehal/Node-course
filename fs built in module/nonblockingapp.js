@@ -43,6 +43,27 @@ fs.writeFile(jupiter, 'i am learning node.', err => {
                 console.log(`Error: ${err}`);
             }else{
                 console.log(`${jupiter} content: ${data}`);
+
+                 //append content
+                 fs.appendFile(jupiter, '\nIt is so fun!', err => {
+                    if(err){
+                        console.log(`Error:
+                        ${err}`);
+                    }else{
+                        //read file
+                        fs.readFile(jupiter, 'utf-8', (err, data) => {
+                            if(err){
+                                console.log(`Error:
+                                ${err}`);
+                            }else{
+                                console.log(`${jupiter} content: 
+                                ${data}`);
+                            }
+
+                        });
+                    }
+
+                });
             }
         });
     }
