@@ -10,12 +10,26 @@ const jupiter = 'jupiter.txt';
 
 
 //check if a file exists: method 1
-
+fs.stat(mars, err => {
+    if(err){
+        console.log(err);
+    }else{
+        console.log(`${mars} exists!`);
+    }
+});
 
 //change the permissions of mars.txt to: 0444
-
+fs.chmod(mars, 0777, err => {
+    if(err){
+        console.log(`Error: ${err}`);
+    }
+});
 
 //check if a file exists: method 2
-
+fs.access(mars, fs.constants.W_OK, err => {
+    if(err){
+        console.log(`Error: ${err}`);
+    }
+});
 
 //read/write/append:
