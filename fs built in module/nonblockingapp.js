@@ -33,3 +33,17 @@ fs.access(mars, fs.constants.W_OK, err => {
 });
 
 //read/write/append:
+fs.writeFile(jupiter, 'i am learning node.', err => {
+    if(err){
+        console.log(`Error: ${err}`);
+    }else{
+        //read file
+        fs.readFile(jupiter, 'utf-8', (err, data) => {
+            if(err){
+                console.log(`Error: ${err}`);
+            }else{
+                console.log(`${jupiter} content: ${data}`);
+            }
+        });
+    }
+});
